@@ -5,17 +5,10 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
     url(r'^$', 'blog.views.home', name='home'),
-    url(r'^(?P<post_slug>[-\w]+)/$', 'blog.views.post', name='post'),
     url(r'^login/$', 'blog.views.login', name='login'),
     url(r'^dashboard/$', 'blog.views.dashboard', name='dashboard'),
     url(r'^logout/$', 'blog.views.logout', name='logout'),
-    # url(r'^django_blog/', include('django_blog.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^(?P<post_slug>[-\w]+)/$', 'blog.views.post', name='post'),
 )

@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+{% load markup %}
 
 {% block content %}
   <div id="body" class="span6 offset2">
     <div class="blog-post">
       <h2><a href="#">{{ post.title }}</a></h2>
       <time>{{ post.pub_date }}</time>
-      <p>{{ post.body }}</p>
+      <p>{{ post.body|markdown:"safe" }}</p>
     </div>
   </div>
 {% endblock content %}
