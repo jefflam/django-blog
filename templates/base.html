@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% block header %}
+    <head>
+      <meta charset="utf-8">
+      {% block title %}
+        <title>Jeff Lam Tian Hung</title>
+      {% endblock title %}
+      <meta name="description" content="Thoughts linger, words persists.">
+      <meta name="author" content="Jeff Lam Tian Hung">
+      <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet" media="screen">
+      <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" media="screen">
+      <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+    </head>
+  {% endblock header %}
+
+  <body>
+    {% block content %}
+    {% endblock content %}
+
+    {% block nav %}
+    {% endblock nav %}
+
+    {% block scripts %}
+      <script src="http://code.jquery.com/jquery-latest.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+    {% endblock scripts %}
+  </body>
+</html>

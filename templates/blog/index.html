@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div id="body" class="span6 offset2">
+    <div class="blog-post">
+      {% for post in posts %}
+        <h2><a href="/{{ post.slug }}">{{ post.title }}</a></h2>
+        <time>{{ post.pub_date }}</time>
+        <p>{{ post.body }}</p>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock content %}
+
+{% block nav %}
+  <header class="span3 visible-desktop visible-tablet">
+    <div id="header-wrapper">
+      <div id="header-avatar">
+        <a href="/"><img class="img-circle" src="{{ STATIC_URL }}img/avatar.png"></a>
+      </div>
+      <h1 id="header-name">Jeff Lam Tian Hung</h1>
+      <div id="header-description">
+        <p>Product intern at <a href="#">Tiny Post</a>. Entrepreneur, designer and improving coder. From Singapore.</p>
+      </div>
+      <div id="header-nav">
+        <a href="http://facebook.com/jefflamth"><img src="{{ STATIC_URL }}img/facebook.png"></a>
+        <a href="http://twitter.com/jefflamth"><img src="{{ STATIC_URL }}img/twitter.png"></a>
+        <a href="#"><img src="{{ STATIC_URL }}img/instagram.png"></a>
+        <a href="http://sg.linkedin.com/jefflamth"><img src="{{ STATIC_URL }}img/linkedin.png"></a>
+        <a href="#"><img src="{{ STATIC_URL }}img/skype.png"></a>
+        <a href="mailto:jefflamth@gmail.com"><img src="{{ STATIC_URL }}img/email.png"></a>
+      </div>
+    </div>
+  </header>
+  <header class="span3 visible-phone">
+    <div id="header-wrapper">
+      <div id="header-avatar">
+        <a href="/"><img class="img-circle" src="{{ STATIC_URL }}img/avatar.png"></a>
+      </div>
+      <h1 id="header-name">Jeff Lam Tian Hung</h1>
+      <div id="header-description">
+        <p>Product intern at <a href="#">Tiny Post</a>. Entrepreneur, designer and improving coder. From Singapore.</p>
+      </div>
+      <div id="header-nav">
+        <a href="http://facebook.com/jefflamth"><img src="{{ STATIC_URL }}img/facebook.png"></a>
+        <a href="http://twitter.com/jefflamth"><img src="{{ STATIC_URL }}img/twitter.png"></a>
+        <a href="#"><img src="{{ STATIC_URL }}img/instagram.png"></a>
+        <a href="http://sg.linkedin.com/jefflamth"><img src="{{ STATIC_URL }}img/linkedin.png"></a>
+        <a href="#"><img src="{{ STATIC_URL }}img/skype.png"></a>
+        <a href="mailto:jefflamth@gmail.com"><img src="{{ STATIC_URL }}img/email.png"></a>
+      </div>
+    </div>
+  </header>
+{% endblock nav %}
