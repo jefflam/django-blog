@@ -1,30 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div id="edit-post">
-    <div class="navbar navbar-static-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <div class="span8 offset2">
-            <ul class="nav">
-              <li><p class="navbar-text">Publish?</p></li>
-              <li><input type="checkbox" id="post-draft" checked="checked" value="{{ post.draft }}"/></li>
-              <form class="navbar-form pull-left">
-                <span class="navbar-label">Date:</span>
-                <input type="date" id="post-date" value="{{ post.pub_date }}"/>
-                <span class="navbar-label">Post URL:</span>
-                <input type="text" id="post-slug" value="{{ post.slug }}" class="span2"/>
-                <button type="submit" class="btn">Save</button>
-                <button type="cancel" class="btn">Cancel</button>
-              </form>
-            </ul>
+
+  <form action="/edit/{{ post.slug }}/update/" method="post">
+  {% csrf_token %}
+    <div id="edit-post">
+      <div class="navbar navbar-static-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <div class="span8 offset2">
+              <ul class="nav">
+                <li><p class="navbar-text">Publish?</p></li>
+                <li><input type="checkbox" id="post-draft" name="post-draft" checked="checked" value="{{ post.draft }}"/></li>
+                <form class="navbar-form pull-left">
+                  <span class="navbar-label">Date:</span>
+                  <input type="text" id="post-date" name="post-date" value="{{ post.pub_date }}"/>
+                  <span class="navbar-label">Post URL:</span>
+                  <input type="text" id="post-slug" name="post-slug" value="{{ post.slug }}" class="span2"/>
+                  <button type="submit" class="btn">Save</button>
+                  <button type="cancel" class="btn">Cancel</button>
+                </form>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
+      <div class="span6 offset4">
+        <textarea id="post-title" name="post-title" placeholder="Enter glorious post title..." class="span6">{{ post.title }}</textarea>
+        <textarea id="post-body" name="post-body" placeholder="Enter glorious thoughts and opinions..." class="span6">{{ post.body }}</textarea>
+      </div>
     </div>
-    <div class="span6 offset4">
-      <textarea id="post-title" placeholder="Enter glorious post title..." class="span6">{{ post.title }}</textarea>
-      <textarea id="post-body" placeholder="Enter glorious thoughts and opinions..." class="span6">{{ post.body }}</textarea>
-    </div>
-  </div>
+  </form>
 {% endblock content %}
+
+{% block scripts %}
+{{ block.super }}
+<script src="{{ STATIC_URL }}js/jquery.autosize-min.js"></script>
+<script src="{{ STATIC_URL }}js/edit-post.js"></script>
+{% endblock scripts %}
