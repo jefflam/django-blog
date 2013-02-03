@@ -14,7 +14,7 @@
                 <li><input type="checkbox" id="post-draft" name="post-draft" checked="checked" value="{{ post.draft }}"/></li>
                 <form class="navbar-form pull-left">
                   <span class="navbar-label">Date:</span>
-                  <input type="text" id="post-date" name="post-date" value="{{ post.pub_date }}"/>
+                  <input type="date" id="post-date" name="post-date" value="{{ post.pub_date|date:"Y-m-d" }}"/>
                   <span class="navbar-label">Post URL:</span>
                   <input type="text" id="post-slug" name="post-slug" value="{{ post.slug }}" class="span2"/>
                   <button type="submit" class="btn">Save</button>
