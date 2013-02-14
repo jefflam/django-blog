@@ -11,14 +11,14 @@
             <div class="span8 offset2">
               <ul class="nav">
                 <li><p class="navbar-text">Publish?</p></li>
-                <li><input type="checkbox" id="post-draft" name="post-draft" checked="checked" value="{{ post.draft }}"/></li>
+                <li><input type="checkbox" id="post-published" name="post-published" {% if post.published %}checked="checked"{% endif %}/></li>
                 <form class="navbar-form pull-left">
                   <span class="navbar-label">Date:</span>
                   <input type="date" id="post-date" name="post-date" value="{{ post.pub_date|date:"Y-m-d" }}"/>
                   <span class="navbar-label">Post URL:</span>
                   <input type="text" id="post-slug" name="post-slug" value="{{ post.slug }}" class="span2"/>
                   <button type="submit" class="btn">Save</button>
-                  <button type="cancel" class="btn">Cancel</button>
+                  <a href="/dashboard/" class="btn">Cancel</a>
                 </form>
               </ul>
             </div>

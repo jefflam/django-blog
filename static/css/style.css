@@ -1,5 +1,5 @@
 html body {
-  font-family: "Ubuntu", "helvetica neue", helvetica, arial, sans-serif;
+  font-family: "Open Sans", "helvetica neue", helvetica, arial, sans-serif;
   font-weight: 300;
   font-size: 16px;
   line-height: 24px;
@@ -36,7 +36,7 @@ html time {
   border-bottom: 1px solid #eee;
 }
 #admin input#post-title {
-  font-family: "Ubuntu", "helvetica neue", helvetica, arial, sans-serif;
+  font-family: "Open Sans", "helvetica neue", helvetica, arial, sans-serif;
   font-size: 28px;
   line-height: 1.35em;
   font-weight: 700;
@@ -90,7 +90,13 @@ html time {
 }
 header.visible-desktop {
   display: none;
-  border-left: 1px solid #ddd;
+  /*border-left: 1px solid #ddd; */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(5%, white), color-stop(50%, #DDD), color-stop(95%, white));
+  background-image: -webkit-linear-gradient(top, white 5%, #DDD 50%, white 95%);
+  background-image: -moz-linear-gradient(top, white 5%, #DDD 50%, white 95%);
+  background-image: -o-linear-gradient(top, white 5%, #DDD 50%, white 95%);
+  background-image: -ms-linear-gradient(top, white 5%, #DDD 50%, white 95%);
+  background-image: linear-gradient(top, white 5%, #DDD 50%, white 95%);
   position: fixed;
   height: 100%;
   top: 0;
@@ -112,8 +118,11 @@ header.visible-phone img {
   width: 70px;
 }
 header #header-wrapper {
-  top: 33%;
+  padding-top: 90%;
   position: relative;
+  background-color: #ffffff;
+  height: 100%;
+  right: -1px;
 }
 header #header-wrapper #header-avatar {
   text-align: center;
@@ -157,9 +166,10 @@ header #header-wrapper #header-description a:hover {
   box-shadow: none;
 }
 #edit-post textarea#post-title {
-  font-family: "Ubuntu", "helvetica neue", helvetica, arial, sans-serif;
+  font-family: "Open Sans", "helvetica neue", helvetica, arial, sans-serif;
   font-size: 28px;
   font-weight: 700;
+  line-height: 1.5em;
   color: #333;
   border: none;
   text-align: left;
@@ -168,7 +178,7 @@ header #header-wrapper #header-description a:hover {
   margin-top: 20px;
 }
 #edit-post textarea#post-body {
-  font-family: "Ubuntu", "helvetica neue", helvetica, arial, sans-serif;
+  font-family: "Open Sans", "helvetica neue", helvetica, arial, sans-serif;
   border: none;
   font-size: 16px;
   resize: none;

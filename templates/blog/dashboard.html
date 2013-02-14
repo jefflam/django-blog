@@ -8,7 +8,7 @@
         <form action="/create/" method="post">
           {% csrf_token %}
           <input type="text" id="post-title" name="post-title" placeholder="Enter glorious post title...">
-          <button type="submit" class="btn">Create New Post</button>
+          <button type="submit" class="btn hide">Create New Post</button>
         </form>
       </div>
     </div>
@@ -34,3 +34,8 @@
     </div>
   </div>
 {% endblock content %}
+
+{% block scripts %}
+{{ block.super }}
+<script src="{{ STATIC_URL }}js/jquery.autosize-min.js"></script>
+{% endblock scripts %}

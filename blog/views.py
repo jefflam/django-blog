@@ -8,7 +8,7 @@ import datetime
 
 # Index page, showing all posts
 def home(request):
-    posts = Post.objects.all().order_by('-pub_date')
+    posts = Post.objects.filter(published=True).order_by('-pub_date')
     return render_to_response('blog/index.html', {'posts': posts}, context_instance=RequestContext(request))
 
 
@@ -22,7 +22,6 @@ def post(request, post_slug):
 def dashboard(request):
     posts = Post.objects.filter(published=True)
     drafts = Post.objects.filter(published=False)
-    # posts = Post.objects.all()
     return render_to_response('blog/dashboard.html',
                              {'posts': posts,
                               'drafts': drafts},
@@ -55,13 +54,20 @@ def update(request, post_slug):
     try:
         post.title = request.POST['post-title']
         post.body = request.POST['post-body']
-        post.published = request.POST['post-draft']
+        # Set post_published_checbox = "on" if checkbox is checked, if not set to False
+        post_published_checkbox = request.POST.get("post-published", False)
+        if post_published_checkbox:
+            post.published = True
+        else:
+            post.published = False
         post.pub_date = request.POST['post-date']
         post.slug = request.POST['post-slug']
         post.save()
+        print request.POST
         return HttpResponseRedirect(reverse('blog.views.dashboard'))
         # return render_to_response('blog/dashboard.html', {'success': True}, context_instance=RequestContext(request))
     except:
+        print "error"
         return HttpResponseRedirect(reverse('blog.views.edit', args=(post_slug,)))
         # return render_to_response('blog/edit.html', {'post': post}, context_instance=RequestContext(request))
 
