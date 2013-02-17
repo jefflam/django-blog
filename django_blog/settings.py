@@ -160,3 +160,7 @@ LOGGING = {
 }
 
 LOGIN_URL = '/login/'
+
+# For Heroku hosting PostgresQL database setup
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()
